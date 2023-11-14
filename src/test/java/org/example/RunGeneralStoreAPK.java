@@ -1,5 +1,8 @@
 package org.example;
 
+
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.MobileCommand;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -34,7 +37,8 @@ public class RunGeneralStoreAPK {
     @Test
     public void runApp(){
         driver.findElement(By.id("com.androidsample.generalstore:id/spinnerCountry")).click();
-        driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(text(\"Bangladesh\"));");
+        driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(text(\"Bangladesh\"));"));
+
         driver.findElement(By.xpath("//android.widget.TextView[@text='Bangladesh']")).click();
         driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("TEST TEXT");
     }
